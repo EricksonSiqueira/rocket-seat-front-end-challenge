@@ -1,0 +1,23 @@
+{
+  "newComponent": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "!nc",
+    "body": [
+      "import { styled } from 'styled-components';",
+      "import { memo } from 'react';",
+      "",
+      "interface ${3:ComponentName}Props {",
+      "",
+      "}",
+      "",
+      "function ${4:ComponentName}(props: ${5:ComponentName}Props) {",
+      "  return (",
+      "    $6",
+      "  )",
+      "}",
+      "",
+      "export default memo(${7:ComponentName})"
+    ],
+    "description": "Create a new unconnected component/view"
+  }
+}
