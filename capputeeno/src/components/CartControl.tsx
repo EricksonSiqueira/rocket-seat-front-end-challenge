@@ -1,7 +1,7 @@
 'use client';
 
 import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { ShoppingBag } from './ShoppingBag';
+import { ShoppingBag } from './Icons/ShoppingBag';
 import { styled } from 'styled-components';
 
 const CartCount = styled.span`
