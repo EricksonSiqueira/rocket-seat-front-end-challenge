@@ -6,6 +6,9 @@
   --delete-color: #de3838;
   --organge-low: #ffa585;
   --shapes-light: #f0f0f5;
+  --dark-texts-inputs-icons: #41414d;
+  --shapes-dark-tooltip: #09090a;
+  --shapes-02: #dce2e5;
 }
 
 * {
