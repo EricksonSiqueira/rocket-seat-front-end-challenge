@@ -23,7 +23,9 @@ export function useProducts() {
     queryKey: ['products'],
   });
 
-  const camelizedData = camelizeKeys(data?.data?.data?.allProducts);
+  const camelizedData = camelizeKeys(
+    data?.data?.data?.allProducts
+  ) as unknown as ProductsFetchResponse['data']['allProducts'];
 
   return { data: camelizedData };
 }
