@@ -23,7 +23,6 @@ const FilterItem = styled.li<FilterItemProp>`
   text-transform: uppercase;
   list-style: none;
   cursor: pointer;
-
   border-bottom: ${(props) =>
     props.selected ? '4px solid var(--organge-low)' : 'none'};
   font-weight: ${(props) => (props.selected ? '600' : '400')};
