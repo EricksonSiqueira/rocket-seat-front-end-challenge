@@ -28,6 +28,7 @@ const CartContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 8.5px;
 `;
 
 export function CartControl() {

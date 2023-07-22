@@ -13,11 +13,18 @@ const sairaStencilOne = Saira_Stencil_One({
 interface HeaderProps {}
 
 const TagHeader = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 160px;
+  height: 80px;
   background-color: white;
+`;
+
+const HeaderWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  max-width: 1184px;
 
   > div {
     display: flex;
@@ -37,11 +44,13 @@ const Logo = styled.a`
 export function Header(props: HeaderProps) {
   return (
     <TagHeader>
-      <Logo className={sairaStencilOne.className}>capputeeno</Logo>
-      <div>
-        <PrimaryInputWithSearchIcon placeholder="Procurando por algo específico?" />
-        <CartControl />
-      </div>
+      <HeaderWrapper>
+        <Logo className={sairaStencilOne.className}>capputeeno</Logo>
+        <div>
+          <PrimaryInputWithSearchIcon placeholder="Procurando por algo específico?" />
+          <CartControl />
+        </div>
+      </HeaderWrapper>
     </TagHeader>
   );
 }
