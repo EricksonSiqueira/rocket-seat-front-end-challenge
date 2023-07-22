@@ -1,12 +1,13 @@
 import { styled } from 'styled-components';
 import { memo } from 'react';
-import Image from 'next/image';
 import { formatPriceValue } from '@/utils/formatPriceValue';
+import ImageWithLoading from './ImageWithLoading';
 
 interface ProductCardProps {
   image: string;
   title: string;
   price: number;
+  priority: boolean;
 }
 
 const Card = styled.article`
@@ -45,6 +46,11 @@ const CardImageWrapper = styled.div`
     border-radius: 8px 8px 0px 0px;
     object-fit: cover;
   }
+
+  .imageSkeleton {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const CardTitle = styled.p`
@@ -67,11 +73,12 @@ function ProductCard(props: ProductCardProps) {
   return (
     <Card>
       <CardImageWrapper>
-        <Image
+        <ImageWithLoading
           src={props.image}
-          alt={'imagem do produto'}
+          alt="imagem do produto"
           fill
           className="image"
+          priority={props.priority}
         />
       </CardImageWrapper>
       <CardProductInfo>
