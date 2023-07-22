@@ -35,20 +35,25 @@ const PriorityFilterContainer = styled.ul`
   min-height: 100%;
   width: 100%;
   top: calc(100% + 4px);
-  right: 0;
+  left: 0;
   background-color: white;
   border-radius: 4px;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
   padding: 12px 16px;
   list-style: none;
+
+  @media (min-width: 768px) {
+    right: 0;
+    left: unset;
+  }
 `;
 
 const PriorityFilterOption = styled.li`
   color: var(--text-dark);
   height: 24px;
   font-size: 14px;
-  font-family: inherit;
   line-height: 22px;
+  font-family: inherit;
   cursor: pointer;
   transition: background-color 0.1s ease-in-out;
 

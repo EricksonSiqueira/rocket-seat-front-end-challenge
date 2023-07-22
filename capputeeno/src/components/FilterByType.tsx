@@ -11,14 +11,18 @@ const FilterList = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 40px;
+  column-gap: 16px;
+
+  @media (min-width: 768px) {
+    column-gap: 40px;
+  }
 `;
 
 const FilterItem = styled.li<FilterItemProp>`
   color: var(--text-dark);
   font-style: normal;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 16px;
   text-align: center;
   text-transform: uppercase;
   list-style: none;
@@ -26,6 +30,11 @@ const FilterItem = styled.li<FilterItemProp>`
   border-bottom: ${(props) =>
     props.selected ? '4px solid var(--organge-low)' : 'none'};
   font-weight: ${(props) => (props.selected ? '600' : '400')};
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
 `;
 
 interface FilterByTypeProps {}

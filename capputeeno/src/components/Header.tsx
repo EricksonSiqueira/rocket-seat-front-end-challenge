@@ -24,7 +24,7 @@ const HeaderWrapper = styled.div`
   align-items: center;
   height: 100%;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 16px;
   max-width: 1184px;
 
   > div {
@@ -33,13 +33,21 @@ const HeaderWrapper = styled.div`
     justify-content: center;
     gap: 24px;
   }
+
+  @media (min-width: 768px) {
+    padding: 0 32px;
+  }
 `;
 
 const Logo = styled.a`
   color: var(--logo-color);
   font-weight: 400;
-  font-size: 40px;
+  font-size: 16px;
   line-height: 150%;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
 export function Header(props: HeaderProps) {

@@ -39,8 +39,8 @@ export function PrimaryInputWithSearchIcon(props: PrimaryInputProps) {
   return (
     <InputContainer>
       <PrimaryInput
-        onChange={(event) => props.handleChange(event.target.value)}
         {...props}
+        onChange={(event) => props.handleChange(event.target.value)}
       />
       <SearchIcon />
     </InputContainer>
