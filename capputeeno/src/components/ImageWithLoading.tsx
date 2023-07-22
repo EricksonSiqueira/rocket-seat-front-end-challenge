@@ -28,6 +28,7 @@ function ImageWithLoading(props: ImageWithLoadingProps) {
         fill={props?.fill ?? false}
         className={props?.className ?? 'image'}
         priority={props?.priority ?? false}
+        onLoadingComplete={() => setIsLoading(false)}
       />
     </>
   );
