@@ -10,6 +10,7 @@ const FilterByPriorityContainer = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  z-index: 2;
 
   button {
     color: var(--text-dark);
