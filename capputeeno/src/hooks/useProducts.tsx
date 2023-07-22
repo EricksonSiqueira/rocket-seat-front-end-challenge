@@ -9,14 +9,16 @@ import {
   getCategoryByType,
   mountQuery,
 } from '@/utils/graphQLFilters';
+import { useDeferredValue } from 'react';
 
 const fetcher = (query: string): AxiosPromise<ProductsFetchResponse> => {
   return axios.post(process.env.NEXT_PUBLIC_API_URL as string, { query });
 };
 
 export function useProducts() {
-  const { type, priority } = useFilter();
+  const { type, priority, search } = useFilter();
   const query = mountQuery(type, priority);
+  const searchDeferred = useDeferredValue(search);
 
   const { data } = useQuery({
     queryFn: () => fetcher(query),
@@ -27,5 +29,9 @@ export function useProducts() {
     data?.data?.data?.allProducts
   ) as unknown as ProductsFetchResponse['data']['allProducts'];
 
-  return { data: camelizedData };
+  const filteredProducts = camelizedData.filter((product) =>
+    product?.name.toLowerCase().includes(searchDeferred?.toLowerCase())
+  );
+
+  return { data: filteredProducts };
 }

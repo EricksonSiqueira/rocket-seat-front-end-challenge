@@ -4,8 +4,6 @@ import { ArrowDown } from './Icons/ArrowDown';
 import { useFilter } from '@/hooks/useFilter';
 import { PriorityType } from '@/types/FilterTypes';
 
-interface FilterByPriorityProps {}
-
 const FilterByPriorityContainer = styled.div`
   display: flex;
   align-items: center;
@@ -59,7 +57,7 @@ const PriorityFilterOption = styled.li`
   }
 `;
 
-function FilterByPriority(props: FilterByPriorityProps) {
+function FilterByPriority() {
   const [filterIsOpen, setFilterIsOpen] = useState(false);
   const { setPriority } = useFilter();
 
