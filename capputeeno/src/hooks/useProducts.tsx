@@ -29,7 +29,7 @@ export function useProducts() {
     data?.data?.data?.allProducts
   ) as unknown as ProductsFetchResponse['data']['allProducts'];
 
-  const filteredProducts = camelizedData.filter((product) =>
+  const filteredProducts = camelizedData?.filter((product) =>
     product?.name.toLowerCase().includes(searchDeferred?.toLowerCase())
   );
 
