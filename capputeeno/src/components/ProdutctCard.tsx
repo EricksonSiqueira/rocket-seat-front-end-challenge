@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { memo } from 'react';
 import Image from 'next/image';
+import { formatPriceValue } from '@/utils/formatPriceValue';
 
 interface ProductCardProps {
   image: string;
@@ -62,9 +63,6 @@ const CardPrice = styled.p`
   line-height: 21px;
 `;
 
-const formatarValor = (valor: number) =>
-  `R$ ${Math.floor(valor / 100)},${(valor % 100).toString().padStart(2, '0')}`;
-
 function ProductCard(props: ProductCardProps) {
   return (
     <Card>
@@ -79,7 +77,7 @@ function ProductCard(props: ProductCardProps) {
       <CardProductInfo>
         <CardTitle>{props.title}</CardTitle>
         <div />
-        <CardPrice>{formatarValor(props.price)}</CardPrice>
+        <CardPrice>{formatPriceValue(props.price)}</CardPrice>
       </CardProductInfo>
     </Card>
   );
