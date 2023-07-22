@@ -3,7 +3,6 @@
     "scope": "javascript, typescript, typescriptreact",
     "prefix": "!nc",
     "body": [
-      "import { styled } from 'styled-components';",
       "import { memo } from 'react';",
       "",
       "interface ${3:ComponentName}Props {",
