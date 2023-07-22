@@ -3,6 +3,7 @@
 import { useProducts } from '@/hooks/useProducts';
 import ProdutctCard from './ProdutctCard';
 import { styled } from 'styled-components';
+import ProductListLoading from './ProductListLoading';
 
 interface ProductsListProps {}
 
@@ -18,16 +19,17 @@ const ProductsSection = styled.section`
 export function ProductsList(props: ProductsListProps) {
   const { data } = useProducts();
 
-  console.log(data);
-
-  return (
+  return data === undefined ? (
+    <ProductListLoading />
+  ) : (
     <ProductsSection>
-      {data?.map((product) => (
+      {data?.map((product, index) => (
         <ProdutctCard
           key={product?.id}
           image={product?.imageUrl}
           price={product?.priceInCents}
           title={product?.name}
+          priority={index < 8}
         />
       ))}
     </ProductsSection>
