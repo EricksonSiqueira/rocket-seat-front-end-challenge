@@ -4,13 +4,14 @@ import { formatPriceValue } from '@/utils/formatPriceValue';
 import ImageWithLoading from './ImageWithLoading';
 
 interface ProductCardProps {
+  id: string;
   image: string;
   title: string;
   price: number;
   priority: boolean;
 }
 
-const Card = styled.article`
+const Card = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,6 +19,8 @@ const Card = styled.article`
   border-radius: 8px 8px 0px 0px;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
+  text-decoration: none;
+  color: var(--dark-texts-inputs-icons);
 `;
 
 const CardProductInfo = styled.div`
@@ -71,7 +74,7 @@ const CardPrice = styled.p`
 
 function ProductCard(props: ProductCardProps) {
   return (
-    <Card>
+    <Card href={`/${props.id}`}>
       <CardImageWrapper>
         <ImageWithLoading
           src={props.image}
