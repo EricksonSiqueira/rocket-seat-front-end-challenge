@@ -12,10 +12,9 @@ const FilterContainer = styled.div`
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+  margin-top: 32px;
 `;
-
-interface FilterBarProps {}
-function FilterBar(props: FilterBarProps) {
+function FilterBar() {
   return (
     <FilterContainer>
       <FilterByType />
