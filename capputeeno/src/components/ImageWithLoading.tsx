@@ -11,11 +11,6 @@ interface ImageWithLoadingProps {
   className?: string;
 }
 
-const LoadingWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-`;
-
 function ImageWithLoading(props: ImageWithLoadingProps) {
   const [isLoading, setIsLoading] = useState(true);
 
