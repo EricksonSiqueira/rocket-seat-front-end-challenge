@@ -26,6 +26,7 @@ export function ProductsList(props: ProductsListProps) {
       {data?.map((product, index) => (
         <ProdutctCard
           key={product?.id}
+          id={product?.id}
           image={product?.imageUrl}
           price={product?.priceInCents}
           title={product?.name}
