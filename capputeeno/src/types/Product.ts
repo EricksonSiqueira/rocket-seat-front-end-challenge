@@ -3,4 +3,6 @@ export interface Product {
   name: string;
   priceInCents: number;
   imageUrl: string;
+  category?: 't-shirts' | 'mugs';
+  description?: string;
 }
