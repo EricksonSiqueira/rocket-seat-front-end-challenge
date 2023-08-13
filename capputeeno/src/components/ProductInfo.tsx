@@ -5,6 +5,7 @@ import ImageWithLoading from './ImageWithLoading';
 import { getProductTypeToPortuguese } from '@/utils/getProductTypeToPortuguese';
 import { formatPriceValue } from '@/utils/formatPriceValue';
 import { ShoppingBag } from './Icons/ShoppingBag';
+import { useCart } from '@/hooks/useCart';
 
 interface ProductInfoProps {
   productId: string;
@@ -107,30 +108,36 @@ const AddToCartButton = styled.button`
   border: none;
   border-radius: 4px;
   color: #f5f5fa;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 function ProductInfo(props: ProductInfoProps) {
-  const { data } = useProduct(props.productId);
+  const { product } = useProduct(props.productId);
+  const { addProductToCart } = useCart();
 
   return (
     <ProductInfoContainer>
       <ProductInfoImageWrapper>
-        <ImageWithLoading src={data?.imageUrl} fill />
+        <ImageWithLoading src={product?.imageUrl} fill />
       </ProductInfoImageWrapper>
       <PageInfoWrapper>
         <ProductInfoContent>
           <ProductType>
-            {getProductTypeToPortuguese(data?.category)}
+            {getProductTypeToPortuguese(product?.category)}
           </ProductType>
-          <ProductTitle>{data?.name}</ProductTitle>
-          <ProductPrice>{formatPriceValue(data?.priceInCents)}</ProductPrice>
+          <ProductTitle>{product?.name}</ProductTitle>
+          <ProductPrice>{formatPriceValue(product?.priceInCents)}</ProductPrice>
           <DeliveryText>
             *Frete de R$40,00 para todo o Brasil. Grátis para compras acima de
             R$900,00.
           </DeliveryText>
           <ProductDescriptionTitle>Descrição</ProductDescriptionTitle>
-          <ProductDescription>{data?.description}</ProductDescription>
+          <ProductDescription>{product?.description}</ProductDescription>
         </ProductInfoContent>
-        <AddToCartButton>
+        <AddToCartButton onClick={() => addProductToCart(product)}>
           <ShoppingBag color="#F5F5FA" />
           <span>Adicionar ao carrinho</span>
         </AddToCartButton>
