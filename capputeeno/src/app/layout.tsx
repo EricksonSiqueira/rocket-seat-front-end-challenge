@@ -2,6 +2,7 @@ import { Header } from '@/components/Header';
 import './globals.css';
 import { Saira } from 'next/font/google';
 import { FilterTypeContextProvider } from '@/context/FilterContext';
+import { CartContextProvider } from '@/context/CartContext';
 
 const saira = Saira({
   subsets: ['latin'],
@@ -21,10 +22,12 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={saira.className}>
-        <FilterTypeContextProvider>
-          <Header />
-          {children}
-        </FilterTypeContextProvider>
+        <CartContextProvider>
+          <FilterTypeContextProvider>
+            <Header />
+            {children}
+          </FilterTypeContextProvider>
+        </CartContextProvider>
       </body>
     </html>
   );
