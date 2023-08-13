@@ -25,5 +25,5 @@ export function useProduct(id: string) {
     data?.data?.data?.Product
   ) as unknown as Product;
 
-  return { data: camelizedData };
+  return { product: camelizedData };
 }
