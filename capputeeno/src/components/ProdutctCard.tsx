@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import { memo } from 'react';
 import { formatPriceValue } from '@/utils/formatPriceValue';
 import ImageWithLoading from './ImageWithLoading';
+import { useRouter } from 'next/navigation';
 
 interface ProductCardProps {
   id: string;
@@ -11,7 +12,7 @@ interface ProductCardProps {
   priority: boolean;
 }
 
-const Card = styled.a`
+const Card = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,6 +22,9 @@ const Card = styled.a`
   backdrop-filter: blur(10px);
   text-decoration: none;
   color: var(--dark-texts-inputs-icons);
+  cursor: pointer;
+  outline: none;
+  border: none;
 `;
 
 const CardProductInfo = styled.div`
@@ -73,8 +77,14 @@ const CardPrice = styled.p`
 `;
 
 function ProductCard(props: ProductCardProps) {
+  const router = useRouter();
+
+  const handleGoToProduct = () => {
+    router.push(`/${props.id}`);
+  };
+
   return (
-    <Card href={`/${props.id}`}>
+    <Card onClick={handleGoToProduct}>
       <CardImageWrapper>
         <ImageWithLoading
           src={props.image}
