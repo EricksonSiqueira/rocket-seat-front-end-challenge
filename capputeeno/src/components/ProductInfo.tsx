@@ -5,7 +5,7 @@ import ImageWithLoading from './ImageWithLoading';
 import { getProductTypeToPortuguese } from '@/utils/getProductTypeToPortuguese';
 import { formatPriceValue } from '@/utils/formatPriceValue';
 import { ShoppingBag } from './Icons/ShoppingBag';
-import { useCart } from '@/hooks/useCart';
+import { addProductToCart } from '@/utils/addProductToCart';
 
 interface ProductInfoProps {
   productId: string;
@@ -116,7 +116,6 @@ const AddToCartButton = styled.button`
 `;
 function ProductInfo(props: ProductInfoProps) {
   const { product } = useProduct(props.productId);
-  const { addProductToCart } = useCart();
 
   return (
     <ProductInfoContainer>
