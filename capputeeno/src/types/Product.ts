@@ -6,3 +6,7 @@ export interface Product {
   category?: 't-shirts' | 'mugs';
   description?: string;
 }
+
+export interface CartProduct extends Product {
+  quantity: number;
+}
