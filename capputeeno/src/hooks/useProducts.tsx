@@ -8,6 +8,8 @@ import { useDeferredValue } from 'react';
 import { fetcher } from '@/utils/fecher';
 import { Product } from '@/types/Product';
 
+const ONE_MINUTE = 1000 * 60 * 1;
+
 export function useProducts() {
   const { type, priority, search } = useFilter();
   const query = mountQuery(type, priority);
@@ -16,6 +18,7 @@ export function useProducts() {
   const { data } = useQuery({
     queryFn: () => fetcher<ProductsFetchResponse>(query),
     queryKey: ['products', type, priority],
+    staleTime: ONE_MINUTE,
   });
 
   const camelizedData = camelizeKeys(
