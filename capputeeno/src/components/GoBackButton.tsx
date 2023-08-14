@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { BackArrow } from './Icons/BackArrow';
 import { useRouter } from 'next/navigation';
 
-interface GoBackLinkProps {
+interface GoBackButtonProps {
   link: string;
 }
 
@@ -30,7 +30,7 @@ const LinkWrapper = styled.button`
   }
 `;
 
-function GoBackLink(props: GoBackLinkProps) {
+function GoBackButton(props: GoBackButtonProps) {
   const router = useRouter();
 
   const handleGoBack = () => {
@@ -45,4 +45,4 @@ function GoBackLink(props: GoBackLinkProps) {
   );
 }
 
-export default memo(GoBackLink);
+export default memo(GoBackButton);

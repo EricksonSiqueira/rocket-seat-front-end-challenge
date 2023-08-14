@@ -1,7 +1,7 @@
 'use client';
 
 import { DefaultPageLayout } from '@/components/DefaultPageLayout';
-import GoBackLink from '@/components/GoBackLink';
+import GoBackButton from '@/components/GoBackButton';
 import ProductInfo from '@/components/ProductInfo';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -17,7 +17,7 @@ export default function Product({ params }: ProductProps) {
   return (
     <QueryClientProvider client={client}>
       <DefaultPageLayout>
-        <GoBackLink link="/" />
+        <GoBackButton link="/" />
         <ProductInfo productId={params.product} />
       </DefaultPageLayout>
     </QueryClientProvider>
