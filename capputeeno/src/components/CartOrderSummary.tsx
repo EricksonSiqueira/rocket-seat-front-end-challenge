@@ -20,10 +20,15 @@ const CartOrderSummaryContainer = styled.aside`
   justify-content: space-between;
   padding: 24px;
   background-color: white;
-  min-width: 352px;
+  min-width: 100%;
+  min-height: 100%;
   margin-top: 40px;
-  min-height: 700px;
   height: 100%;
+
+  @media (min-width: 1024px) {
+    min-width: 352px;
+    min-height: 700px;
+  }
 `;
 
 const CartOrderSummaryContent = styled.article`

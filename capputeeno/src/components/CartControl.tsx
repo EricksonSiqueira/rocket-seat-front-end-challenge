@@ -37,7 +37,7 @@ export function CartControl() {
   return (
     <CartContainer>
       <ShoppingBag />
-      {value.length && <CartCount>{value.length}</CartCount>}
+      {value.length > 0 ? <CartCount>{value.length}</CartCount> : null}
     </CartContainer>
   );
 }

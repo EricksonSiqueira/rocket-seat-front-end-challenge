@@ -14,12 +14,18 @@ const CartWrapper = styled.div`
   display: flex;
   column-gap: 32px;
   width: 100%;
+  flex-direction: column;
+  margin-bottom: 40px;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 
 const CartContent = styled.main`
   display: flex;
-  flex-direction: column;
   width: 100%;
+  flex-direction: column;
 
   & > button {
     align-self: flex-start;

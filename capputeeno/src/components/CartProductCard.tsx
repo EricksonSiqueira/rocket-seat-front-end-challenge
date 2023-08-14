@@ -15,18 +15,34 @@ interface CartProductCardProps {
 
 const CartProductCardContainer = styled.article`
   display: flex;
+  flex-direction: column;
   border-radius: 8px;
   background-color: white;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 
 const CartProductCardImageWrapper = styled.div`
   position: relative;
-  min-width: 256px;
+  min-width: 100%;
   width: 256px;
   min-height: 211px;
 
   & > .image {
-    border-radius: 8px 0 0 8px;
+    border-radius: 8px 8px 0 0;
+    object-fit: cover;
+  }
+
+  @media (min-width: 1024px) {
+    min-width: 256px;
+    width: 256px;
+    min-height: 211px;
+
+    & > .image {
+      border-radius: 8px 0 0 8px;
+    }
   }
 `;
 
