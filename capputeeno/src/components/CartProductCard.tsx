@@ -22,6 +22,7 @@ const CartProductCardContainer = styled.article`
 const CartProductCardImageWrapper = styled.div`
   position: relative;
   min-width: 256px;
+  width: 256px;
   min-height: 211px;
 
   & > .image {
@@ -55,6 +56,12 @@ const CartProductCardName = styled.h3`
   color: var(--dark-texts-inputs-icons);
 `;
 
+const DeleteProductButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+`;
+
 const CartProductCardDescription = styled.p`
   font-size: 12px;
   line-height: 18px;
@@ -78,6 +85,7 @@ const CartSelectedProductQuantity = styled.select`
   background-color: var(--bg-secondary);
   padding: 8px 12px;
   border: 1px solid #a8a8b3;
+  cursor: pointer;
 `;
 
 const QuantityOpt = styled.option`
@@ -99,6 +107,14 @@ function CartProductCard(props: CartProductCardProps) {
     props.updateLocalStorage(updatedProducts);
   };
 
+  const removeProductFromCart = () => {
+    const updatedProducts = props.products.filter(
+      (product) => product.id !== props.product.id
+    );
+
+    props.updateLocalStorage(updatedProducts);
+  };
+
   return (
     <CartProductCardContainer>
       <CartProductCardImageWrapper>
@@ -112,7 +128,12 @@ function CartProductCard(props: CartProductCardProps) {
         <CartProductCardTextContent>
           <SpaceBetweenRowWrapper>
             <CartProductCardName>{props.product.name}</CartProductCardName>
-            <TrashCan />
+            <DeleteProductButton
+              aria-label="Remover item do carrinho"
+              onClick={removeProductFromCart}
+            >
+              <TrashCan />
+            </DeleteProductButton>
           </SpaceBetweenRowWrapper>
           <CartProductCardDescription>
             {props.product.description}
