@@ -5,6 +5,7 @@ import { Saira_Stencil_One } from 'next/font/google';
 import { PrimaryInputWithSearchIcon } from './PrimaryInput';
 import { CartControl } from './CartControl';
 import { useFilter } from '@/hooks/useFilter';
+import { useRouter } from 'next/navigation';
 
 const sairaStencilOne = Saira_Stencil_One({
   subsets: ['latin'],
@@ -37,11 +38,15 @@ const HeaderWrapper = styled.div`
   }
 `;
 
-const Logo = styled.a`
+const Logo = styled.button`
+  outline: none;
+  border: none;
+  background-color: transparent;
   color: var(--logo-color);
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     font-size: 40px;
@@ -50,11 +55,17 @@ const Logo = styled.a`
 
 export function Header() {
   const { setSearch, search } = useFilter();
+  const router = useRouter();
 
   return (
     <TagHeader>
       <HeaderWrapper>
-        <Logo className={sairaStencilOne.className}>capputeeno</Logo>
+        <Logo
+          className={sairaStencilOne.className}
+          onClick={() => router.push('/')}
+        >
+          capputeeno
+        </Logo>
         <div>
           <PrimaryInputWithSearchIcon
             value={search}
