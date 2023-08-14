@@ -11,8 +11,6 @@ const sairaStencilOne = Saira_Stencil_One({
   weight: ['400'],
 });
 
-interface HeaderProps {}
-
 const TagHeader = styled.header`
   height: 80px;
   background-color: white;
@@ -50,7 +48,7 @@ const Logo = styled.a`
   }
 `;
 
-export function Header(props: HeaderProps) {
+export function Header() {
   const { setSearch, search } = useFilter();
 
   return (
@@ -60,7 +58,7 @@ export function Header(props: HeaderProps) {
         <div>
           <PrimaryInputWithSearchIcon
             value={search}
-            handleChange={setSearch}
+            onChange={(event) => setSearch(event.target.value)}
             placeholder="Procurando por algo específico?"
           />
           <CartControl />
