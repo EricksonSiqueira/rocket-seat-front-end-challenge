@@ -11,13 +11,13 @@ import { Product } from '@/types/Product';
 const ONE_MINUTE = 1000 * 60 * 1;
 
 export function useProducts() {
-  const { type, priority, search } = useFilter();
-  const query = mountQuery(type, priority);
+  const { type, priority, search, page } = useFilter();
+  const query = mountQuery(type, priority, page);
   const searchDeferred = useDeferredValue(search);
 
   const { data } = useQuery({
     queryFn: () => fetcher<ProductsFetchResponse>(query),
-    queryKey: ['products', type, priority],
+    queryKey: ['products', type, priority, page],
     staleTime: ONE_MINUTE,
   });
 
@@ -29,5 +29,8 @@ export function useProducts() {
     product?.name.toLowerCase().includes(searchDeferred?.toLowerCase())
   );
 
-  return { data: filteredProducts };
+  return {
+    data: filteredProducts,
+    count: data?.data?.data?._allProductsMeta.count,
+  };
 }
