@@ -24,15 +24,22 @@ export const getFieldByPriority = (priority: PriorityType) => {
   return { field: 'sales', order: 'DSC' };
 };
 
-export const mountQuery = (type: FilterType, priority: PriorityType) => {
+export const mountQuery = (
+  type: FilterType,
+  priority: PriorityType,
+  page: number
+) => {
   if (type === FilterType.ALL && priority === PriorityType.POPULARITY) {
     return `
       query {
-        allProducts {
+        allProducts (page: ${page}, perPage: ${12}) {
           id
           name
           price_in_cents
           image_url
+        }
+        _allProductsMeta {
+          count
         }
       }`;
   }
@@ -44,11 +51,14 @@ export const mountQuery = (type: FilterType, priority: PriorityType) => {
     : '';
 
   return `query {
-    allProducts(${categoryFilter} sortField: "${field}", sortOrder: "${order}") {
+    allProducts(${categoryFilter} sortField: "${field}", sortOrder: "${order}", page: ${page}, perPage: 12) {
       id
       name
       price_in_cents
       image_url
+    }
+    _allProductsMeta (${categoryFilter}){
+      count
     }
   }`;
 };
