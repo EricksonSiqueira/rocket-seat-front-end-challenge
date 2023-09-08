@@ -25,9 +25,7 @@ export function useProduct(id: string) {
     staleTime: FIVE_MINUTES,
   });
 
-  const camelizedData = camelizeKeys(
-    data?.data?.data?.Product
-  ) as unknown as Product;
+  const camelizedData = camelizeKeys(data?.data?.data?.Product) as Product;
 
   return { product: camelizedData };
 }
