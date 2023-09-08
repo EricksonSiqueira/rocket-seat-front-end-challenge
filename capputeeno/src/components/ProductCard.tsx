@@ -21,7 +21,6 @@ const Card = styled.button`
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   text-decoration: none;
-  color: var(--dark-texts-inputs-icons);
   cursor: pointer;
   outline: none;
   border: none;
@@ -61,7 +60,7 @@ const CardImageWrapper = styled.div`
 `;
 
 const CardTitle = styled.p`
-  color: var(dark-texts-inputs-icons);
+  color: var(--dark-texts-inputs-icons);
   font-size: 16px;
   font-style: normal;
   font-weight: 300;

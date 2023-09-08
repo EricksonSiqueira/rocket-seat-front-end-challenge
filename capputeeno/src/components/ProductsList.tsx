@@ -1,7 +1,7 @@
 'use client';
 
 import { useProducts } from '@/hooks/useProducts';
-import ProdutctCard from './ProdutctCard';
+import ProdutctCard from './ProductCard';
 import { styled } from 'styled-components';
 import ProductListLoading from './ProductListLoading';
 
