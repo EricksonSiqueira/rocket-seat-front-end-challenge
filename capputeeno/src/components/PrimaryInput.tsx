@@ -3,7 +3,7 @@ import { SearchIcon } from './Icons/SearchIcon';
 import { InputHTMLAttributes } from 'react';
 
 export const PrimaryInput = styled.input`
-  width: 352px;
+  width: 190px;
   border-radius: 8px;
   border: none;
   height: 42px;
@@ -11,22 +11,44 @@ export const PrimaryInput = styled.input`
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 10px;
+  line-height: 16px;
 
   background: var(--bg-secondary);
   color: var(--text-dark);
+
+  &:focus {
+    outline: 2px solid var(--organge-low);
+  }
+
+  @media (min-width: 768px) {
+    width: 352px;
+    font-size: 14px;
+    line-height: 22px;
+  }
 `;
 
 const InputContainer = styled.div`
   position: relative;
-  width: 352px;
+  width: 190px;
 
   svg {
+    width: 16px;
+    height: 16px;
     position: absolute;
-    right: 16px;
+    right: 8px;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  @media (min-width: 768px) {
+    width: 352px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      right: 16px;
+    }
   }
 `;
 

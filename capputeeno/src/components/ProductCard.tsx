@@ -29,6 +29,7 @@ const Card = styled.button`
 const CardProductInfo = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: start;
   width: 100%;
   row-gap: 8px;
   padding: 8px 12px;

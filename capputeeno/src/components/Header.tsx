@@ -30,11 +30,15 @@ const HeaderWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
+    gap: 8px;
   }
 
   @media (min-width: 768px) {
     padding: 0 32px;
+
+    > div {
+      gap: 24px;
+    }
   }
 `;
 
