@@ -1,6 +1,5 @@
 import { ProductsFetchResponse } from '@/types/ProductsResponse';
 import { useQuery } from '@tanstack/react-query';
-import axios, { AxiosPromise } from 'axios';
 import { camelizeKeys } from 'humps';
 import { useFilter } from './useFilter';
 import { mountQuery } from '@/utils/graphQLFilters';
@@ -23,7 +22,7 @@ export function useProducts() {
 
   const camelizedData = camelizeKeys(
     data?.data?.data?.allProducts
-  ) as unknown as Product[];
+  ) as Product[];
 
   const filteredProducts = camelizedData?.filter((product) =>
     product?.name.toLowerCase().includes(searchDeferred?.toLowerCase())
@@ -31,6 +30,5 @@ export function useProducts() {
 
   return {
     data: filteredProducts,
-    count: data?.data?.data?._allProductsMeta.count,
   };
 }

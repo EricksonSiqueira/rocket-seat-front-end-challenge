@@ -38,9 +38,6 @@ export const mountQuery = (
           price_in_cents
           image_url
         }
-        _allProductsMeta {
-          count
-        }
       }`;
   }
 
@@ -56,9 +53,6 @@ export const mountQuery = (
       name
       price_in_cents
       image_url
-    }
-    _allProductsMeta (${categoryFilter}){
-      count
     }
   }`;
 };
