@@ -3,6 +3,7 @@ import { memo, useState } from 'react';
 import { ArrowDown } from './Icons/ArrowDown';
 import { useFilter } from '@/hooks/useFilter';
 import { PriorityType } from '@/types/FilterTypes';
+import { getTextByPriority } from '@/utils/getTextByPriority';
 
 const FilterByPriorityContainer = styled.div`
   display: flex;
@@ -64,19 +65,22 @@ const PriorityFilterOption = styled.li`
 
 function FilterByPriority() {
   const [filterIsOpen, setFilterIsOpen] = useState(false);
-  const { setPriority } = useFilter();
+  const { priority, setPriority } = useFilter();
+  const [noFiltersApllied, setNoFiltersApllied] = useState(true);
 
   const handleOpen = () => setFilterIsOpen((prev) => !prev);
 
   const handlePriority = (newPriority: PriorityType) => {
     setPriority(newPriority);
+    setNoFiltersApllied(false);
     setFilterIsOpen(false);
   };
 
   return (
     <FilterByPriorityContainer>
       <button type="button" onClick={handleOpen}>
-        Organizar por <ArrowDown />
+        {noFiltersApllied ? 'Organizar por' : getTextByPriority(priority)}
+        <ArrowDown />
       </button>
       {filterIsOpen && (
         <PriorityFilterContainer>
