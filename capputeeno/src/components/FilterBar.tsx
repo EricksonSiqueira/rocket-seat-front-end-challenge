@@ -12,7 +12,7 @@ const FilterContainer = styled.div`
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  margin-top: 32px;
+  margin-top: 34px;
 `;
 function FilterBar() {
   return (

@@ -13,7 +13,7 @@ const ProductsSection = styled.section`
   gap: 32px;
   width: 100%;
   flex-wrap: wrap;
-  margin-top: 32px;
+  margin-top: 10px;
 `;
 
 export function ProductsList(props: ProductsListProps) {

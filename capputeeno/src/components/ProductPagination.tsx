@@ -31,46 +31,44 @@ const PaginationWrapper = styled.nav`
   }
 
   & > ul > li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     list-style: none;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-transform: uppercase;
   }
 `;
 
 const PageButton = styled.button<PageButtonProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
   border: ${(props) =>
     props.selected ? '1px solid var(--organge-low)' : 'none'};
-  width: 32px;
-  height: 32px;
-  background-color: #e9e9f0;
   color: var(${(props) => (props.selected ? '--organge-low' : '--text-dark')});
-  text-align: center;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
   cursor: pointer;
+  background-color: #e9e9f0;
 `;
 
 const ChangePageArrow = styled.button<ChangePageArrowProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  list-style: none;
   border-radius: 8px;
-  width: 32px;
-  height: 32px;
-  background-color: #e9e9f0;
+  min-width: 100%;
+  min-height: 100%;
   color: var(--text-dark);
-  text-align: center;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  text-transform: uppercase;
   cursor: pointer;
   border: none;
+  background-color: #e9e9f0;
+  margin-left: ${(props) => (props.buttonType === 'prev' ? '11px' : '14px')};
 
   & > svg {
     transform: rotate(
