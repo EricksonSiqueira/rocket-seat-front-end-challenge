@@ -18,7 +18,6 @@
     "eslint-config-next": "13.4.6",
     "humps": "^2.0.1",
     "next": "13.4.6",
-    "rc-pagination": "^3.6.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^6.0.0-rc.3",
