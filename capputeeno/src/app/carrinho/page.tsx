@@ -63,7 +63,7 @@ const CartProductsSection = styled.section`
 function Carrinho() {
   const { value: products, updateLocalStorage } = useLocalStorage<
     CartProduct[]
-  >('cart-items', [] as CartProduct[]);
+  >('cart-items', []);
 
   const totalCartItems = products.length;
   const totalProductsPrice = formatPriceValue(
